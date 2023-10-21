@@ -20,19 +20,21 @@ public class Board extends Application {
         primaryStage.setHeight(1000);
         primaryStage.setWidth(1000);
 
-        GridPane pane = new GridPane();
         Button[][] buttons = new Button[10][10];
 
+      //Gridpane som placeras i mitten av fönstret med själva spelplanen
+        GridPane pane = new GridPane();
         int count = 0;
 
         for (int i = 0; i < 10; i++) {
             count++;
             for (int j = 0; j < 10; j++) {
                 Rectangle rectangle = new Rectangle(50, 50);
+                rectangle.setStroke(Color.BLACK);
                 GameButton.fireButton();
                 buttons[i][j] = GameButton.fireButton();
                 if (count % 2 == 0) {
-                    rectangle.setFill(Color.DARKBLUE);
+                    rectangle.setFill(Color.ROYALBLUE);
                 } else {
                     rectangle.setFill(Color.BLUE);
                 }
@@ -51,6 +53,7 @@ public class Board extends Application {
 //            }
 //        }
 
+        //En hBox som läggs högst upp i fönstret (med position)
         HBox hbox = new HBox();
         hbox.setSpacing(0);
         Label emptyLabel = new Label();
@@ -70,7 +73,7 @@ public class Board extends Application {
             hbox.getChildren().addAll(l);
         }
 
-
+        //En vBox som läggslängst till vänster i fönstret (med position)
         VBox vbox = new VBox();
         vbox.setSpacing(0);
         for (int i = 0; i < 10; i++) {
@@ -87,6 +90,7 @@ public class Board extends Application {
         }
 
 
+        //Skapar en borderpane och placerar in vår Gridpane, V&HBox
         BorderPane borderPane = new BorderPane();
         borderPane.setTop(hbox);
         borderPane.setLeft(vbox);
@@ -95,7 +99,6 @@ public class Board extends Application {
         Scene scene = new Scene(borderPane);
         primaryStage.setScene(scene);
         primaryStage.show();
-
 
     }
 }
