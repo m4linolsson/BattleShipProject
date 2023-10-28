@@ -14,6 +14,7 @@ public class ButtonStandard {
     private boolean pressed;
 
     private boolean closeToFoundSHip;
+    private boolean disableButton;
 
     //Konstruktorer
     public ButtonStandard() {
@@ -140,6 +141,15 @@ public class ButtonStandard {
             button.setDisable(true);
             button.setText("X");
         }
+    }
+
+    public boolean getDisableButton() {
+        return disableButton;
+    }
+
+    public void setDisableButton(boolean disableButton) {
+        this.disableButton = disableButton;
+        button.setDisable(true);
     }
 }
 
