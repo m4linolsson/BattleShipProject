@@ -1,18 +1,18 @@
+import javafx.geometry.Pos;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.control.Button;
+
 import java.awt.*;
 
 public class Ship {
-
-    //sk man ha skeppet som en 2DArray alltså [bredd][längd]
-    //bredd jämt 1 men kan var åt olika håll då....
 
     private int shipSize;
     private String shipName;
     private Button[] ship = new Button[shipSize];
 
 
-    //konstuktorer
-
-
+    //konstruktorer
     public Ship() {
     }
 
@@ -22,7 +22,6 @@ public class Ship {
 
 
 //getters och setters
-
     public int getShipSize() {
         return shipSize;
     }
