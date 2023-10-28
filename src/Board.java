@@ -211,9 +211,9 @@ public class Board extends Application {
             int colRandom = random.nextInt(10);
 
             System.out.println("Shoot at: " + buttons[rowRandom][colRandom].getButtonIdKanpp());
-            //om den inte ät tryckt på redan så trycker vi på knappen (och ser om det
-            // är ett skepp eller inte).
-            if (!buttons[rowRandom][colRandom].getPressed()) {
+            //kollar om knappen är aktiv eller inte och är den det så ändrar
+            // vi den till att vara pressed och då blir den disable och kan inte tryckas på igen
+            if (!buttons[rowRandom][colRandom].getDisableButton()) {
                 buttons[rowRandom][colRandom].setPressed(true);
 
                 //är det ett skepp sätts alla 4 hörnen runt skeppet ut som x och
@@ -222,24 +222,28 @@ public class Board extends Application {
 
                     try {
                         buttons[rowRandom + 1][colRandom + 1].setCloseToFoundSHip(true);
+                        buttons[rowRandom + 1][colRandom + 1].setDisableButton(true);
                         System.out.println("X vid: " + buttons[rowRandom + 1][colRandom + 1].getButtonIdKanpp());
                     } catch (Exception e) {
                         System.out.println("x Utanför spelplan");
                     }
                     try {
                         buttons[rowRandom - 1][colRandom + 1].setCloseToFoundSHip(true);
+                        buttons[rowRandom - 1][colRandom + 1].setDisableButton(true);
                         System.out.println("X vid: " + buttons[rowRandom - 1][colRandom + 1].getButtonIdKanpp());
                     } catch (Exception e) {
                         System.out.println("x Utanför spelplan");
                     }
                     try {
                         buttons[rowRandom + 1][colRandom - 1].setCloseToFoundSHip(true);
+                        buttons[rowRandom + 1][colRandom - 1].setDisableButton(true);
                         System.out.println("X vid: " + buttons[rowRandom + 1][colRandom - 1].getButtonIdKanpp());
                     } catch (Exception e) {
                         System.out.println("x Utanför spelplan");
                     }
                     try {
                         buttons[rowRandom - 1][colRandom - 1].setCloseToFoundSHip(true);
+                        buttons[rowRandom - 1][colRandom - 1].setDisableButton(true);
                         System.out.println("X vid: " + buttons[rowRandom - 1][colRandom - 1].getButtonIdKanpp());
                     } catch (Exception e) {
                         System.out.println("x Utanför spelplan");
